@@ -8,6 +8,6 @@
  */
 var TEXTRESCUER_CONFIG = {
   LANDING_URL: 'https://chrome.google.com/webstore',  // אחרי פרסום: החלף לקישור התוסף שלך
-  CHECKOUT_URL: 'https://YOUR-STORE.lemonsqueezy.com/checkout/...',  // 5$ חד־פעמי
-  VERIFY_API_URL: 'https://YOUR-APP.vercel.app/api/verify'
+  CHECKOUT_URL: 'https://textrescuer.lemonsqueezy.com/checkout/buy/582f276f-bddb-43a9-a67f-8ec6152d6aa7',  // 5$ חד־פעמי
+  VERIFY_API_URL: 'https://chrome-test.vercel.app/api/verify'
 };
