@@ -1,0 +1,10 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."
+
+# So VERIFY_API_URL can stay .../api/verify (extension doesn't need change)
+[[redirects]]
+  from = "/api/verify"
+  to = "/.netlify/functions/verify"
+  status = 200
+  force = true
