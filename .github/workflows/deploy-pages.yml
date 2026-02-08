@@ -1,5 +1,6 @@
 # Single workflow: one build job, one artifact, one deploy.
-# Fixes "Multiple artifacts named github-pages" by uploading only once.
+# If you see "Multiple artifacts named github-pages": ensure ONLY this workflow
+# deploys to Pages (Settings → Pages → GitHub Actions; remove any other Pages workflows).
 name: Deploy to GitHub Pages
 
 on:
@@ -23,9 +24,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload artifact (single "github-pages")
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: .
+          name: github-pages
 
   deploy:
     needs: build
