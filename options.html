@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html id="optionsPage" dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Rescuer — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 id="optionsTitle">Text Rescuer</h1>
+      <p class="sub" id="optionsSubtitle">Settings & Pro</p>
+    </header>
+
+    <section class="card">
+      <h2 id="proSectionTitle">Pro account</h2>
+      <p class="desc" id="proSectionDesc">Free: 24h retention. Pro: 30 days, time machine, 50 snippets. One month free, then $5 one-time to unlock forever.</p>
+      <div id="proStatus" class="pro-status"></div>
+      <div class="form-row">
+        <label for="licenseKey" id="licenseLabel">License key (Pro)</label>
+        <input type="text" id="licenseKey" placeholder="Paste key from purchase email" autocomplete="off">
+      </div>
+      <div class="actions">
+        <button type="button" id="verifyBtn" class="btn btn-primary">Verify & save</button>
+        <a id="buyPro" href="#" target="_blank" class="btn btn-secondary">Unlock Pro — $5 once</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="paymentUrlLabel">Checkout page URL</h2>
+      <p class="desc">Where users buy Pro. Set to your LemonSqueezy checkout link.</p>
+      <div class="form-row">
+        <label for="paymentUrl">URL</label>
+        <input type="url" id="paymentUrl" placeholder="https://...">
+      </div>
+      <button type="button" id="savePayment" class="btn btn-primary">Save URL</button>
+    </section>
+
+    <section class="card">
+      <h2>License verification API</h2>
+      <p class="desc">Required for Pro. Deploy the provided serverless (see README) and paste its URL here.</p>
+      <div class="form-row">
+        <label for="verifyApiUrl">API URL</label>
+        <input type="url" id="verifyApiUrl" placeholder="https://your-app.vercel.app/api/verify">
+      </div>
+      <button type="button" id="saveApiUrl" class="btn btn-primary">Save API URL</button>
+    </section>
+
+    <section class="card card-muted">
+      <h2 id="privacyTitle">Privacy</h2>
+      <p id="privacyText">We never save passwords or card fields. All data stays on your device.</p>
+    </section>
+
+    <div id="optionsToast" class="toast hidden"></div>
+  </div>
+  <script src="config.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

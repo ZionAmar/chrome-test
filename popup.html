@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html id="popupPage" dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Rescuer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <div class="title-row">
+      <h1 id="popupTitle">Text Rescuer</h1>
+      <span id="proBadge" class="badge badge-pro hidden">Pro</span>
+    </div>
+    <p class="sub" id="popupSubtitle">Saved text on this site</p>
+  </div>
+  <div id="proCta" class="pro-cta hidden">
+    <p id="ctaText">Free: last 24 hours. Pro: 30 days + time machine.</p>
+    <a id="upgradeLink" href="#" target="_blank" class="btn btn-primary">Upgrade to Pro</a>
+  </div>
+  <div id="list" class="list"></div>
+  <div id="empty" class="empty hidden">No saved text on this page yet.</div>
+  <div id="toast" class="toast hidden"></div>
+  <div id="error" class="error hidden"></div>
+  <footer class="footer">
+    <a id="optionsLink" href="#">Settings</a>
+  </footer>
+  <script src="config.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

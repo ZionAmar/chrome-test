@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html id="landing" dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text Rescuer — Never lose what you type</title>
+  <meta name="description" content="Chrome extension that saves what you type. One month free, then $5 one-time to unlock forever. Available in Chrome Web Store.">
+  <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+  <div class="lang-toggle"><button type="button" id="langEn" aria-pressed="true">English</button><button type="button" id="langHe" aria-pressed="false">עברית</button></div>
+  <div class="wrap">
+    <header class="hero">
+      <h1 data-en="Text Rescuer" data-he="מציל הטקסטים">Text Rescuer</h1>
+      <p class="tagline" data-en="Insurance for everything you type online" data-he="תעודת ביטוח לכל מה שאתה מקליד באינטרנט">Insurance for everything you type online</p>
+      <p class="sub" data-en="Hit Back by mistake? Browser crashed? Session expired? Restore with one click." data-he="חזר Back בטעות? הדפדפן קרס? הסשן התנתק? השחזר בלחיצה.">Hit Back by mistake? Browser crashed? Session expired? Restore with one click.</p>
+    </header>
+
+    <section class="cta-section">
+      <div class="card card-free">
+        <h2 data-en="Free" data-he="חינם">Free</h2>
+        <ul>
+          <li data-en="24-hour automatic save" data-he="שמירה אוטומטית ל־24 שעות">24-hour automatic save</li>
+          <li data-en="Restore from the extension" data-he="שחזור בלחיצה מהתוסף">Restore from the extension</li>
+          <li data-en="No passwords or cards — everything stays on your device" data-he="ללא סיסמאות או כרטיסים — הכל במכשיר">No passwords or cards — everything stays on your device</li>
+        </ul>
+        <a href="#" id="installFree" class="btn btn-outline" data-en="Install free" data-he="התקן חינם">Install free</a>
+      </div>
+      <div class="card card-pro">
+        <span class="badge">Pro</span>
+        <h2>Pro</h2>
+        <ul>
+          <li data-en="30-day save + time machine (previous versions)" data-he="שמירה ל־30 יום + מכונת זמן (גרסאות קודמות)">30-day save + time machine (previous versions)</li>
+          <li data-en="50 snippets per page" data-he="עד 50 טקסטים לדף">50 snippets per page</li>
+          <li data-en="One month free, then $5 one click — unlock forever" data-he="חודש חינם, אחר כך 5$ בלחיצה — פתוח לצמיתות">One month free, then $5 one click — unlock forever</li>
+        </ul>
+        <a href="#" id="buyPro" class="btn btn-primary" data-en="Unlock Pro — $5 once" data-he="פתח Pro — 5$ בלחיצה">Unlock Pro — $5 once</a>
+      </div>
+    </section>
+
+    <section class="how">
+      <h2 data-en="How it works" data-he="איך זה עובד">How it works</h2>
+      <ol>
+        <li data-en="Install the extension and browse as usual." data-he="מתקין את התוסף וממשיך לגלוש כרגיל.">Install the extension and browse as usual.</li>
+        <li data-en="Typing in any input or textarea is saved in the background (except passwords and card fields)." data-he="כל הקלדה ב־input ו־textarea נשמרת ברקע (מלבד סיסמאות וכרטיסי אשראי).">Typing in any input or textarea is saved in the background (except passwords and card fields).</li>
+        <li data-en="If something was lost — click the extension icon, choose Restore, and the text is back (or copied to clipboard)." data-he="אם משהו נמחק — לוחצים על אייקון התוסף, בוחרים שחזר, והטקסט חוזר (או מועתק ללוח).">If something was lost — click the extension icon, choose Restore, and the text is back (or copied to clipboard).</li>
+      </ol>
+    </section>
+
+    <footer class="footer">
+      <p data-en="The extension does not send data to any server. Everything stays on your device." data-he="התוסף לא שולח מידע לשרת. הכל נשמר רק במכשיר שלך.">The extension does not send data to any server. Everything stays on your device.</p>
+      <p class="install-hint" data-en="Download the zip above, unzip it, then: Chrome → ⋮ → Extensions → turn on Developer mode → Load unpacked → select the unzipped folder." data-he="הורד את הקובץ zip למעלה, חלץ אותו, ואז: Chrome → ⋮ → Extensions → הפעל מצב מפתח → טען פריסה לא מאושרת → בחר את התיקייה שחילצת.">Download the zip above, unzip it, then: Chrome → ⋮ → Extensions → Load unpacked → select the unzipped folder.</p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      // ——— מקום אחד לחיבור: הורדה + תשלום ———
+      // ערוך כאן ואז העלה את הדף (GitHub Pages / Netlify וכו').
+      var CONFIG = {
+        // קישור להורדת התוסף: אחרי הרצת build.ps1 יהיה landing/text-rescuer.zip
+        DOWNLOAD_URL: './text-rescuer.zip',
+        // קישור רכישת Pro — 5$ חד־פעמי (LemonSqueezy: Products → One-time $5 → Copy checkout URL)
+        CHECKOUT_URL: 'https://YOUR-STORE.lemonsqueezy.com/checkout/...'
+      };
+      // אם ה-zip לא באותו שרת — שים כתובת מלאה, למשל:
+      // DOWNLOAD_URL: 'https://github.com/YOU/REPO/releases/download/v1.1.0/text-rescuer.zip'
+
+      var lang = localStorage.getItem('textrescuer_lang') || 'en';
+      var installFree = document.getElementById('installFree');
+      var buyPro = document.getElementById('buyPro');
+      if (installFree) installFree.href = CONFIG.DOWNLOAD_URL || '#';
+      if (buyPro) buyPro.href = CONFIG.CHECKOUT_URL || '#';
+
+      function setLang(l) {
+        lang = l;
+        localStorage.setItem('textrescuer_lang', l);
+        document.getElementById('landing').lang = l;
+        document.getElementById('landing').dir = l === 'he' ? 'rtl' : 'ltr';
+        document.querySelectorAll('[data-en][data-he]').forEach(function (el) {
+          var val = el.getAttribute('data-' + l);
+          if (val) {
+            if (el.tagName === 'LI' || el.tagName === 'P' || el.tagName === 'H1' || el.tagName === 'H2') el.textContent = val;
+            else if (el.tagName === 'A' || el.tagName === 'BUTTON') el.textContent = val;
+          }
+        });
+        document.getElementById('langEn').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
+        document.getElementById('langHe').setAttribute('aria-pressed', l === 'he' ? 'true' : 'false');
+      }
+      document.getElementById('langEn').onclick = function () { setLang('en'); };
+      document.getElementById('langHe').onclick = function () { setLang('he'); };
+      setLang(lang);
+    })();
+  </script>
+</body>
+</html>
